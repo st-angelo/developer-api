@@ -1,4 +1,3 @@
-import cors from 'cors';
 import express from 'express';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
@@ -15,9 +14,6 @@ app.use(helmet());
 
 // Logging
 app.use(morgan('combined'));
-
-// Cors with defaults (enables all origins)
-app.use(cors());
 
 // Limit requests from the same API
 app.use(
