@@ -18,7 +18,7 @@ export default (_: Server, socket: Socket) => {
     const issue = (await response.json()) as IssueDto;
     socket.emit(
       'MESSAGE',
-      `It fucking worked!! Task name: ${issue.fields.summary}, with status: ${issue.fields.status.name}`
+      `Task name: ${issue.fields.summary}, with status: ${issue.fields.status.name}`
     );
   };
 

@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { login } from '../controllers/authentication';
+import { issueUpdated } from '../controllers/webhooks';
 
 const router = Router();
 
-router.post('/login', login);
+router.post('/atlassian/updated/:issueId', issueUpdated);
 
 export default router;

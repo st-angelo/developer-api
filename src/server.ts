@@ -9,14 +9,12 @@ import { Server, Socket } from 'socket.io';
 import app from './app.js';
 import registerMessageHandlers from './handlers/messageHandlers.js';
 
+
 const server = http.createServer(app);
 
-const io = new Server(server, {
-  cors: {
-    origin: '*',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  },
-});
+const io = new Server(server);
+
+app.set('io', io);
 
 const onConnection = (socket: Socket) => {
   registerMessageHandlers(io, socket);
