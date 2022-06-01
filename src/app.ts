@@ -4,7 +4,7 @@ import helmet from 'helmet';
 import hpp from 'hpp';
 import morgan from 'morgan';
 import xss from 'xss-clean';
-import webhooksRouter from './routers/webhooks.js';
+import webhookRouter from './routers/webhook.js';
 import { __dirname } from './utils/common.js';
 
 const app = express();
@@ -37,6 +37,6 @@ app.use(hpp());
 // Serving static files
 app.use(express.static(`${__dirname}/public`));
 
-app.use('/api/1.0/webhooks', webhooksRouter);
+app.use('/api/1.0/webhook', webhookRouter);
 
 export default app;

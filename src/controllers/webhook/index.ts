@@ -1,5 +1,6 @@
 import { NextFunction, Response } from 'express';
 import { Server } from 'socket.io';
+import { Events } from '../../handlers/events';
 import { TypedRequest as Request } from '../common';
 import { IssueUpdatedBody } from './metadata';
 
@@ -11,12 +12,11 @@ export const issueUpdated = (
   const issue = req.body.issue;
   const io = req.app.get<Server>('io');
   io.emit(
-    'MESSAGE',
+    Events.Issue,
     `Issue updated! Task name: ${issue.fields.summary}, with status: ${issue.fields.status.name}`
   );
-  console.log(issue, req);
   res.status(200).json({
-    status: 'success',
-    data: {},
+    ok: true,
+    data: null,
   });
 };

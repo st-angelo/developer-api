@@ -1,5 +1,6 @@
 import { Server, Socket } from 'socket.io';
-import IssueDto from '../data/dto/issue';
+import IssueDto from '../dto/issue';
+import { Events } from './events';
 
 export default (_: Server, socket: Socket) => {
   const getMessage = async () => {
@@ -17,10 +18,10 @@ export default (_: Server, socket: Socket) => {
     );
     const issue = (await response.json()) as IssueDto;
     socket.emit(
-      'MESSAGE',
+      Events.Issue,
       `Task name: ${issue.fields.summary}, with status: ${issue.fields.status.name}`
     );
   };
 
-  socket.on('GET_MESSAGE', getMessage);
+  socket.on(Events.GetIssues, getMessage);
 };

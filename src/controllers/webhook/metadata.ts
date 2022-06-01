@@ -1,4 +1,4 @@
-import IssueDto from '../../data/dto/issue';
+import IssueDto from '../../dto/issue';
 
 export interface IssueUpdatedBody {
   issue: IssueDto;
