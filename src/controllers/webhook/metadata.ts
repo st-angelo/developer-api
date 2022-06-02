@@ -1,5 +1,5 @@
-import IssueDto from '../../dto/issue';
+import AtlassianIssueDto from '../../dtos/atlassianIssue';
 
 export interface IssueUpdatedBody {
-  issue: IssueDto;
+  issue: AtlassianIssueDto;
 }
