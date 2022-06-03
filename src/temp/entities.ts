@@ -7,6 +7,7 @@ class IssueDto {
   @AutoMap()
   key: string;
   route?: string;
+  url: string;
   name: string;
   type: string;
   typeDescription: string;

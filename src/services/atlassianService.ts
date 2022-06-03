@@ -14,5 +14,9 @@ export const getIssue = async (key: string) => {
     }
   );
   const issue = (await response.json()) as AtlassianIssueDto;
+  console.log(issue);
   return issue;
 };
+
+export const getIssueUrl = (key: string) =>
+  `${process.env.ATLASSIAN_CLOUD_URL}/browse/${key}`;

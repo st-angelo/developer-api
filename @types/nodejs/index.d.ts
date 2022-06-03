@@ -4,6 +4,7 @@ declare module NodeJS {
     PORT: string;
 
     ATLASSIAN_API_URL: string;
+    ATLASSIAN_CLOUD_URL: string;
     ATLASSIAN_EMAIL: string;
     ATLASSIAN_TOKEN: string;
 

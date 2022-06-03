@@ -1,12 +1,16 @@
-import { mapWithArguments } from '@automapper/core';
 import {
   AtlassianAvatarUrlSize,
   AtlassianPriority,
 } from '../dtos/atlassianEnums';
 import AtlassianIssueDto from '../dtos/atlassianIssue';
+import { getIssueUrl } from '../services/atlassianService';
 import IssueDto from '../temp/entities';
 import { classes } from './namedImports/@automapper/classes';
-import { createMapper, mapFrom } from './namedImports/@automapper/core';
+import {
+  createMapper,
+  mapFrom,
+  mapWithArguments,
+} from './namedImports/@automapper/core';
 
 const mapper = createMapper({
   name: 'main',
@@ -18,6 +22,10 @@ mapper
   .forMember(
     destination => destination.route,
     mapWithArguments((_, { route }) => route)
+  )
+  .forMember(
+    destination => destination.url,
+    mapFrom(source => getIssueUrl(source.key))
   )
   .forMember(
     destination => destination.name,
@@ -70,7 +78,8 @@ mapper
   )
   .forMember(
     destination => destination.assigneeEmail,
-    mapFrom(source => source.fields.assignee.emailAddress)
+    //mapFrom(source => source.fields.assignee.emailAddress)
+    mapFrom(_ => 'achirca@totalsoft.ro')
   )
   .forMember(
     destination => destination.assigneeAvatarUrl,
