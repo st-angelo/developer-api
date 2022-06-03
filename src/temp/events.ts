@@ -3,5 +3,9 @@ export enum Events {
   GetIssues = 'GetIssues',
   Issue = 'Issue',
   AddIssue = 'AddIssue',
-  DeletedIssue = 'DeletedIssue',
+  DeleteIssue = 'DeleteIssue',
+  IssueExists = 'IssueExists',
+  IssueNotFound = 'IssueNotFound',
+  IssueDeleted = 'IssueDeleted',
+  IssueInvalid = 'IssueInvalid',
 }

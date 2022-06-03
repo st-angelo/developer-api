@@ -4,7 +4,7 @@ import helmet from 'helmet';
 import hpp from 'hpp';
 import morgan from 'morgan';
 import xss from 'xss-clean';
-import webhookRouter from './routers/webhook.js';
+import webhookRouter from './routers/webhookRouter.js';
 import { __dirname } from './utils/common.js';
 
 const app = express();

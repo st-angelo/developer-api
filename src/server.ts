@@ -5,10 +5,11 @@
    and establish some error handling */
 import './startup.js';
 import './utils/config.js';
+import './db/db';
 import http from 'http';
 import { Server, Socket } from 'socket.io';
 import app from './app.js';
-import registerAtlassianHandlers from './handlers/atlassianHandlers.js';
+import registerAtlassianHandlers from './socketHandlers/atlassianHandlers.js';
 
 const server = http.createServer(app);
 
