@@ -1,4 +1,5 @@
 import { Server, Socket } from 'socket.io';
+import { COMPLETED_STATUS } from '../dtos/atlassianConstants';
 import AtlassianIssueDto from '../dtos/atlassianIssue';
 import _issueRepository from '../repositories/issueRepository';
 import { getIssue } from '../services/atlassianService';
@@ -62,10 +63,24 @@ export default (io: Server, socket: Socket) => {
       return;
     }
     const issue = await getIssue(issueKey);
-    if (issue) {
+    if (issue && issue.errorMessages && issue.errorMessages.length > 0)
+      socket.emit(Events.IssueInvalid, {
+        issueKey,
+        errorMessages: issue.errorMessages,
+      });
+    else {
+      if (
+        issue.fields.status.name ===
+        COMPLETED_STATUS[
+          issue.fields.issuetype.name as keyof typeof COMPLETED_STATUS
+        ]
+      ) {
+        socket.emit(Events.IssueIsCompleted, { issueKey });
+        return;
+      }
       await _issueRepository.addIssueXRoute(issueKey, route);
       io.sockets.emit(Events.Issue, issueResponse(issue, route));
-    } else socket.emit(Events.IssueInvalid, { issueKey });
+    }
   };
 
   const deleteIssue = async ({ issueKey, route }: DeleteIssueRequest) => {

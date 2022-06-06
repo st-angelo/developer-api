@@ -8,4 +8,5 @@ export enum Events {
   IssueNotFound = 'IssueNotFound',
   IssueDeleted = 'IssueDeleted',
   IssueInvalid = 'IssueInvalid',
+  IssueIsCompleted = 'IssueIsCompleted',
 }

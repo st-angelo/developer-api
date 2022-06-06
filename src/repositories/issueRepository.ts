@@ -34,10 +34,18 @@ const deleteIssueXRoute = async (issueKey: string, route: string) => {
   return true;
 };
 
+const deleteIssueForAllRoutes = async (issueKey: string) => {
+  db.data.issueXRoutes = db.data.issueXRoutes.filter(
+    issueXRoute => issueXRoute.issueKey !== issueKey
+  );
+  await db.write();
+};
+
 export default {
   getIssuesXRoute,
   getIssueXRoute,
   existsIssueXRoute,
   addIssueXRoute,
   deleteIssueXRoute,
+  deleteIssueForAllRoutes,
 };

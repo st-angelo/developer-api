@@ -12,3 +12,12 @@ export enum AtlassianAvatarUrlSize {
   _24x24 = '24x24',
   _16x16 = '16x16',
 }
+
+export enum AtlassianIssueType {
+  Epic = 'Epic',
+  Brainstorm = 'Brainstorm',
+  Bug = 'Bug',
+  Feature = 'Feature',
+  Refactor = 'Refactor',
+  Subtask = 'Subtask',
+}

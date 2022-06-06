@@ -38,6 +38,7 @@ class AtlassianIssueDto {
   id: string;
   key: string;
   fields: AtlassianFieldsDto;
+  errorMessages: string[];
 }
 
 export default AtlassianIssueDto;
