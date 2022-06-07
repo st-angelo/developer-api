@@ -1,4 +1,9 @@
-import { IssueDto } from 'developer-published-language/task-viewer/dtos';
+import {
+  AddIssueRequest,
+  DeleteIssueRequest,
+  GetIssuesRequest,
+  IssueDto,
+} from 'developer-published-language/task-viewer/dtos';
 import Events from 'developer-published-language/task-viewer/events';
 import { Server, Socket } from 'socket.io';
 import { COMPLETED_STATUS } from '../integration/atlassianConstants';
@@ -6,33 +11,6 @@ import AtlassianIssueDto from '../integration/atlassianDtos';
 import _issueRepository from '../repositories/issueRepository';
 import { getIssue } from '../services/atlassianService';
 import mapper from '../utils/mapper.js';
-
-// TODO move these interfaces to developer/published-language once they are definitive
-// #region Request interfaces
-
-interface GetIssuesRequest {
-  route: string;
-}
-
-interface AddIssueRequest {
-  issueKey: string;
-  route: string;
-}
-
-interface DeleteIssueRequest {
-  issueKey: string;
-  route: string;
-}
-
-// #endregion
-
-// #region Response interfaces
-
-// interface DeletedIssueResponse {
-//   id: string;
-// }
-
-// #endregion
 
 // #region Utils
 
