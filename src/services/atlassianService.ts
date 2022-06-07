@@ -1,4 +1,4 @@
-import AtlassianIssueDto from '../dtos/atlassianIssue';
+import AtlassianIssueDto from '../integration/atlassianDtos';
 import cache from '../utils/cache';
 
 export const getIssue = async (key: string) => {

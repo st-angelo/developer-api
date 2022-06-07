@@ -1,10 +1,10 @@
+import { IssueDto } from 'developer-published-language/task-viewer/dtos';
+import AtlassianIssueDto from '../integration/atlassianDtos';
 import {
   AtlassianAvatarUrlSize,
   AtlassianPriority,
-} from '../dtos/atlassianEnums';
-import AtlassianIssueDto from '../dtos/atlassianIssue';
+} from '../integration/atlassianEnums';
 import { getIssueUrl } from '../services/atlassianService';
-import IssueDto from '../temp/entities';
 import { classes } from './namedImports/@automapper/classes';
 import {
   createMapper,
@@ -19,6 +19,15 @@ const mapper = createMapper({
 
 mapper
   .createMap(AtlassianIssueDto, IssueDto)
+  // Header
+  .forMember(
+    destination => destination.id,
+    mapFrom(source => source.id)
+  )
+  .forMember(
+    destination => destination.key,
+    mapFrom(source => source.key)
+  )
   .forMember(
     destination => destination.route,
     mapWithArguments((_, { route }) => route)

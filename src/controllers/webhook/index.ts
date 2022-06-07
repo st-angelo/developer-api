@@ -1,9 +1,9 @@
+import { IssueDto } from 'developer-published-language/task-viewer/dtos';
+import Events from 'developer-published-language/task-viewer/events';
 import { Server } from 'socket.io';
-import { COMPLETED_STATUS } from '../../dtos/atlassianConstants';
-import AtlassianIssueDto from '../../dtos/atlassianIssue';
+import { COMPLETED_STATUS } from '../../integration/atlassianConstants';
+import AtlassianIssueDto from '../../integration/atlassianDtos';
 import issueRepository from '../../repositories/issueRepository';
-import IssueDto from '../../temp/entities';
-import { Events } from '../../temp/events';
 import cache from '../../utils/cache';
 import { catchAsync } from '../../utils/catchAsync';
 import mapper from '../../utils/mapper.js';

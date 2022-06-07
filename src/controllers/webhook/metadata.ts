@@ -1,4 +1,4 @@
-import AtlassianIssueDto from '../../dtos/atlassianIssue';
+import AtlassianIssueDto from '../../integration/atlassianDtos';
 
 export interface IssueUpdatedBody {
   issue: AtlassianIssueDto;

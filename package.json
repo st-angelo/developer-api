@@ -1,7 +1,7 @@
 {
   "name": "developer-api",
   "version": "1.0.0",
-  "description": "This is the api for WebArena",
+  "description": "Backend for developer-ui",
   "main": "./src/server.ts",
   "type": "module",
   "scripts": {
@@ -13,17 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/st-angelo/WebArena.NODE.git"
+    "url": "https://github.com/st-angelo/developer-api"
   },
   "keywords": [
-    "WebArena"
+    "Developer",
+    "API"
   ],
   "author": "Angelo Statescu",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/st-angelo/WebArena.NODE/issues"
-  },
-  "homepage": "https://github.com/st-angelo/WebArena.NODE#readme",
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
     "@types/eslint": "^8.4.1",
@@ -51,6 +48,7 @@
     "@types/uuid": "^8.3.4",
     "bcryptjs": "^2.4.3",
     "date-fns": "^2.28.0",
+    "developer-published-language": "^1.1.0",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "express-rate-limit": "^6.2.1",

@@ -1,5 +1,5 @@
-import db from '../db/db';
 import IssueXRoute from '../entities/issueXRoute';
+import db from '../utils/db';
 
 const getIssuesXRoute = (route: string) =>
   db.data.issueXRoutes.filter(issueXRoute => issueXRoute.route === route) || [];

@@ -1,10 +1,10 @@
+import { IssueDto } from 'developer-published-language/task-viewer/dtos';
+import Events from 'developer-published-language/task-viewer/events';
 import { Server, Socket } from 'socket.io';
-import { COMPLETED_STATUS } from '../dtos/atlassianConstants';
-import AtlassianIssueDto from '../dtos/atlassianIssue';
+import { COMPLETED_STATUS } from '../integration/atlassianConstants';
+import AtlassianIssueDto from '../integration/atlassianDtos';
 import _issueRepository from '../repositories/issueRepository';
 import { getIssue } from '../services/atlassianService';
-import IssueDto from '../temp/entities';
-import { Events } from '../temp/events';
 import mapper from '../utils/mapper.js';
 
 // TODO move these interfaces to developer/published-language once they are definitive
